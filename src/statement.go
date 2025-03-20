@@ -1,24 +1,23 @@
 package main
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
-	"time"
+	"os"
 )
 
 func main() {
-	var t uint64
-	for {
-		t++
-		fmt.Println(fmt.Sprintf("%d time, %s", t, time.Now()))
-		ok, body, err := checkTicket()
-		fmt.Println(fmt.Sprintf("ticket: %v", ok))
-		fmt.Println(fmt.Sprintf("err: %s", err))
-		fmt.Println(fmt.Sprintf("err: %s", body))
-		time.Sleep(3 * time.Second)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Please input your name:")
+	txt, err := reader.ReadString('\n')
+	if err != nil {
+		log.Fatal(err)
 	}
+	fmt.Println(txt)
 }
 
 func checkTicket() (bool, string, error) {

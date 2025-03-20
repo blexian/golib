@@ -72,3 +72,59 @@ func breadthFirstSearch(n *node) {
 	}
 	fmt.Printf("]\n")
 }
+
+// DepthFirstPreSearch 深度优先算法 -- 前序
+func DepthFirstPreSearch(n *node) {
+	fmt.Printf("[ ")
+	if n != nil {
+		depthFirstPreSearch(n)
+	}
+	fmt.Printf("]\n")
+}
+func depthFirstPreSearch(n *node) {
+	if n.left != nil {
+		depthFirstPreSearch(n.left)
+	}
+	fmt.Printf("%d ", n.Value)
+	if n.right != nil {
+		depthFirstPreSearch(n.right)
+	}
+}
+
+// DepthFirstMidSearch 深度优先算法 -- 中序
+func DepthFirstMidSearch(n *node) {
+	fmt.Printf("[ ")
+	if n != nil {
+		depthFirstMidSearch(n)
+	}
+	fmt.Printf("]\n")
+}
+
+func depthFirstMidSearch(n *node) {
+	fmt.Printf("%d ", n.Value)
+	if n.left != nil {
+		depthFirstMidSearch(n.left)
+	}
+	if n.right != nil {
+		depthFirstMidSearch(n.right)
+	}
+}
+
+// DepthFirstPostSearch 深度优先算法 -- 后序
+func DepthFirstPostSearch(n *node) {
+	fmt.Printf("[ ")
+	if n != nil {
+		depthFirstPostSearch(n)
+	}
+	fmt.Printf("]\n")
+}
+
+func depthFirstPostSearch(n *node) {
+	if n.right != nil {
+		depthFirstPostSearch(n.right)
+	}
+	fmt.Printf("%d ", n.Value)
+	if n.left != nil {
+		depthFirstPostSearch(n.left)
+	}
+}

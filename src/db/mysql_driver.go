@@ -40,17 +40,7 @@ func main() {
 	}
 
 	db.AutoMigrate(&Product{})
-	//newRow := Product{
-	//	Code: "XYJ04",
-	//	Price: 400}
-	// create
-	//db.Create(&newRow)
-	// select
 	var product Product
 	db.First(&product, 2)
-	//fmt.Println(product)
-	//db.First(&product, "code = ?", "XYJ04")
-	//fmt.Println(product)
-	//db.Model(&product).Updates(Product{Price: 300, Code: "XYJ44"})
 	db.Delete(&product)
 }
