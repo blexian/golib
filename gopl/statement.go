@@ -42,7 +42,9 @@ func checkTicket() (bool, string, error) {
 
 	res, _ := http.DefaultClient.Do(req)
 
-	defer res.Body.Close()
+	defer func() {
+		res.Body.Close()
+	}()
 	body, _ := ioutil.ReadAll(res.Body)
 
 	jo := map[string]interface{}{}
