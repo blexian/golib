@@ -2,8 +2,13 @@ package funcmethod
 
 import (
 	"log"
+	"testing"
 	"time"
 )
+
+func TestDeferTimer(t *testing.T) {
+	bigSlowOperation()
+}
 
 func bigSlowOperation() {
 	defer trace("bigSlowOperation")() // don't forget the extra parentheses

@@ -30,7 +30,7 @@ func Test2(t *testing.T) {
 		if err == io.EOF {
 			break // finished reading
 		}
-		fmt.Printf(string(r))
+		fmt.Printf("%c", r)
 		if err != nil {
 			fmt.Printf("read failed:%v\n", err)
 		}
